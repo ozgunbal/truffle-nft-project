@@ -39,9 +39,11 @@ const App = {
     App.setStatus("New Star Owner is " + this.account + ".");
   },
 
-  // Implement Task 4 Modify the front end of the DAPP
   lookUp: async function (){
-    
+    const { lookUptokenIdToStarInfo } = this.meta.methods;
+    const id = document.getElementById("lookid").value;
+    const starName = await lookUptokenIdToStarInfo(id).call();
+    App.setStatus(`Name of the star with id ${id} is ${starName}`);
   }
 
 };
